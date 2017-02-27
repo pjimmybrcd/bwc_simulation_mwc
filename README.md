@@ -47,18 +47,18 @@ Ensure that you've set up BWC for encrypted datastore. See https://docs.stacksto
 
 And then add the following items (replacing it with your username and password)
 
-		st2 key set campus_ztp.username 'ICX_Switch_SSH_Username'
-		st2 key set campus_ztp.password 'ICX_Switch_SSH_Passworsd' --encrypt
-		st2 key set campus_ztp.enable_username 'ICX_Switch_Enable_Username'
-		st2 key set campus_ztp.enable_password 'ICX_Switch_Enable_Password' –encrypt
-		st2 key set campus_ztp.db_user 'MySQL_Username' --encrypt
-		st2 key set campus_ztp.db_pass 'MySQL_Password' --encrypt
-		st2 key set campus_ztp.db_name 'users’ --encrypt
-		st2 key set campus_ztp.db_addr '127.0.0.1' --encrypt
-		st2 key set campus_ztp.ruckus_controller_username 'Ruckus_Controller_Username'
-		st2 key set campus_ztp.ruckus_controller_password 'Ruckus_Controller_Password' --encrypt
-		st2 key set campus_ztp.ruckus_controller_enable_username 'Ruckus_Controller_Enable_Username'
-		st2 key set campus_ztp.ruckus_controller_enable_password 'Ruckus_Controller_Enable_Password' --encrypt
+		st2 key set ztp.username 'ICX_Switch_SSH_Username'
+		st2 key set ztp.password 'ICX_Switch_SSH_Passworsd' --encrypt
+		st2 key set ztp.enable_username 'ICX_Switch_Enable_Username'
+		st2 key set ztp.enable_password 'ICX_Switch_Enable_Password' –encrypt
+		st2 key set ztp.db_user 'MySQL_Username' --encrypt
+		st2 key set ztp.db_pass 'MySQL_Password' --encrypt
+		st2 key set ztp.db_name 'users’ --encrypt
+		st2 key set ztp.db_addr '127.0.0.1' --encrypt
+		st2 key set ztp.ruckus_controller_username 'Ruckus_Controller_Username'
+		st2 key set ztp.ruckus_controller_password 'Ruckus_Controller_Password' --encrypt
+		st2 key set ztp.ruckus_controller_enable_username 'Ruckus_Controller_Enable_Username'
+		st2 key set ztp.ruckus_controller_enable_password 'Ruckus_Controller_Enable_Password' --encrypt
 
 
 ## Pack Installation
@@ -70,8 +70,8 @@ And then add the following items (replacing it with your username and password)
 ### Manual Install
 You can also move the entire pack to the /opt/stackstorm/packs/ directory then install by issuing the following commands.
 
-1. Rename the folder to campus_ztp
-2. Move the campus_ztp folder to /opt/stackstorm/packs/
+1. Rename the folder to ztp
+2. Move the ztp folder to /opt/stackstorm/packs/
 3. Load the pack
 
 		st2ctl reload
