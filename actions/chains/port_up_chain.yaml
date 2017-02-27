@@ -1,0 +1,38 @@
+---
+  chain:
+    -
+      name: "icx_send_cli_template"
+      ref: "ztp.icx_send_cli_template"
+      parameters:
+        device: "{{ip}}"
+        template: "icx_vlan_update"
+        variables: "{\"commit\":\"true\",\"port\":\"{{port}}\",\"ap_name\":\"{{ap_name}}\"}"
+      on-success: "update_port_status_in_database"
+    -
+      name: "update_port_status_in_database"
+      ref: "ztp.update_port_status_in_database"
+      parameters:
+        timestamp: "{{timestamp}}"
+        switch_name: "{{switch_name}}"
+        ip: "{{ip}}"
+        ap_name: "{{ap_name}}"
+        mac: "{{mac}}"
+        port: "{{port}}"
+        action: "add"
+      on-success: "pause_chain"
+    -
+      name: "pause_chain"
+      ref: "core.pause"
+      parameters:
+        max_pause: 1
+      on-success: "ruckus_controller_send_cli_template"
+      on-failure: "ruckus_controller_send_cli_template"
+    -
+      name: "ruckus_controller_send_cli_template"
+      ref: "ztp.ruckus_controller_send_cli_template"
+      parameters:
+        template: "ruckus_controller_update"
+        conf_mode: True
+        variables: "{\"commit\":\"true\",\"base_mac\":\"{{base_mac}}\",\"ap_name\":\"{{ap_name}}\",\"switch_name\":\"{{switch_name}}\", \"switch_ip\":\"{{ip}}\", \"port\":\"{{port}}\"}"
+
+

@@ -1,0 +1,32 @@
+---
+name: "port_up_chain"
+description: "Campus ZTP Port Up Workflow"
+
+runner_type: "action-chain"
+
+entry_point: "chains/port_up_chain.yaml"
+
+enabled: true
+
+parameters:
+  timestamp:
+    type: "string"
+    required: true
+  switch_name:
+    type: "string"
+    required: true
+  ip:
+    type: "string"
+    required: true
+  ap_name:
+    type: "string"
+    required: true
+  mac:
+    type: "string"
+    required: true
+  base_mac:
+    type: "string"
+    required: false
+  port:
+    type: "string"
+    required: true

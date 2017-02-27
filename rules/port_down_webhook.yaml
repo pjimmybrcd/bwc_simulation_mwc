@@ -1,0 +1,27 @@
+---
+    name: "Port Down Webhook"
+    pack: "ztp"
+    description: "Port Down Webhook"
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "port_down"
+
+    criteria:
+        trigger.body.name:
+            pattern: "st2"
+            type: "equals"
+
+    action:
+        ref: "ztp.port_down_chain"
+        parameters:
+            timestamp: "{{trigger.body.timestamp}}"
+            switch_name: "{{trigger.body.switch_name}}"
+            ip: "{{trigger.body.ip}}"
+            ap_name: "{{trigger.body.ap_name}}"
+            mac: "{{trigger.body.mac}}"
+            base_mac: "{{trigger.body.base_mac}}"
+            port: "{{trigger.body.port}}"
+

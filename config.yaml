@@ -1,0 +1,9 @@
+---
+template_dir: "/opt/stackstorm/packs/ztp/templates"
+excel_file: "/opt/stackstorm/packs/ztp/sample.xlsx"
+temp_dir: "/opt/stackstorm/packs/ztp/tmp"
+config_backup_dir: "/opt/stackstorm/packs/ztp/config_archives"
+
+#Used for ssh to ruckus controller
+ruckus_controller_ip: "10.130.33.16"
+

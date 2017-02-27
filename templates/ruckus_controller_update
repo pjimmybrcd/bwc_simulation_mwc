@@ -1,0 +1,4 @@
+ap {{base_mac}}
+name "{{ap_name}} {{switch_name}}"
+description "{{ap_name}} {{switch_name}} {{switch_ip}}  {{port}}"
+end

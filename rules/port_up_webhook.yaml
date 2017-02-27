@@ -1,0 +1,26 @@
+---
+    name: "Port Up Webhook"
+    pack: "ztp"
+    description: "Port Up Webhook"
+    enabled: true
+
+    trigger:
+        type: "core.st2.webhook"
+        parameters:
+            url: "port_up"
+
+    criteria:
+        trigger.body.name:
+            pattern: "st2"
+            type: "equals"
+
+    action:
+        ref: "ztp.port_up_chain"
+        parameters:
+            timestamp: "{{trigger.body.timestamp}}"
+            switch_name: "{{trigger.body.switch_name}}"
+            ip: "{{trigger.body.ip}}"
+            ap_name: "{{trigger.body.ap_name}}"
+            mac: "{{trigger.body.mac}}"
+            base_mac: "{{trigger.body.base_mac}}"
+            port: "{{trigger.body.port}}"
